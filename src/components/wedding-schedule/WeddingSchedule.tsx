@@ -13,6 +13,7 @@ interface WeddingDay {
   subtitle?: string;
   venue?: string;
   venueAddress?: string;
+  mapsUrl?: string;
   time?: string;
   outfit?: string;
   outfitColors?: { name: string; hex: string }[];
@@ -35,7 +36,8 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     urduTitle: "شبِ رت جگا",
     subtitle: "A Night of Awakening & Blessings",
     venue: "At Home",
-    venueAddress: "Family Residence",
+    venueAddress: "Tahera Manzil, Silk Mill Colony, Chhatrapati Sambhajinagar",
+    mapsUrl: "https://maps.app.goo.gl/GTMnCMLdUj4nBsxB7?g_st=aw",
     description: "Inaugurating the wedding festivities with an intimate family night of traditional wedding songs, prayers, and celebratory laughter.",
     bgImage: "/wedding-schedule/bg-1.jpg",
     nextDayTitle: "Day 2: Sufi Night",
@@ -49,6 +51,8 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     urduTitle: "محفلِ قوالی",
     subtitle: "An evening of qawwali",
     venue: "Jai Hind Farm House",
+    venueAddress: "Chhatrapati Sambhajinagar",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Jai+Hind+Farm+House+Aurangabad",
     time: "7:00 PM to 11:00 PM",
     description: "An enchanting musical evening filled with soulful Sufiana qawwalis, divine poetry, and celebration under the shimmering chandeliers.",
     bgImage: "/wedding-schedule/bg-2.jpg",
@@ -63,7 +67,8 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     urduTitle: "رنگِ ہلدی",
     subtitle: "Range haldi",
     venue: "Unnati Lawns",
-    venueAddress: "Kranti Chowk, beside DFC Gym",
+    venueAddress: "Kranti Chowk, beside DFC Gym, Chhatrapati Sambhajinagar",
+    mapsUrl: "https://maps.app.goo.gl/KMU3rtJpqoASuoa38",
     time: "4:00 PM",
     outfit: "Orange and Hot Pink",
     outfitColors: [
@@ -84,6 +89,8 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     urduTitle: "ساچق کی شام",
     subtitle: "Sachak ki shaam",
     venue: "Unnati Lawns",
+    venueAddress: "Kranti Chowk, beside DFC Gym, Chhatrapati Sambhajinagar",
+    mapsUrl: "https://maps.app.goo.gl/KMU3rtJpqoASuoa38",
     time: "5:00 PM",
     outfit: "Any shade of Green",
     outfitColors: [
@@ -105,6 +112,8 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     urduTitle: "عقدِ نکاح",
     subtitle: "The Sacred Covenant & Qubool",
     venue: "Ellora Lawns",
+    venueAddress: "Chhatrapati Sambhajinagar",
+    mapsUrl: "https://maps.app.goo.gl/7kvLoxuC5CGF1Hpr5",
     outfit: "White dress for the hijab-qubool moment",
     dinnerNote: "For the evening dinner, you can wear any outfit of your choice.",
     description: "Two souls united in a divine bond of love and faith. May Allah bless this sacred union with lifelong peace and bliss.",
@@ -120,6 +129,8 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     urduTitle: "دعوتِ ولیمہ",
     subtitle: "A Grand Feast of Gratitude",
     venue: "Ikon Celebration",
+    venueAddress: "Chhatrapati Sambhajinagar",
+    mapsUrl: "https://maps.app.goo.gl/SFFiNM251KumjkUEA",
     time: "Reaching Time: 8:00 PM",
     description: "A joyous Sunnah banquet celebrating together with cherished family and friends in gratitude and warmth.",
     bgImage: "/wedding-schedule/bg-2.jpg",
@@ -147,6 +158,8 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     urduTitle: "شاندار استقبالیہ",
     subtitle: "The Grand Finale Celebration",
     venue: "Ikon Celebration",
+    venueAddress: "Chhatrapati Sambhajinagar",
+    mapsUrl: "https://maps.app.goo.gl/SFFiNM251KumjkUEA",
     time: "Reaching Time: 8:00 PM",
     outfit: "Pastel-coloured saree with a dupatta.",
     highlightNote: "✨ Everyone has to drape dupatta ✨",
@@ -739,26 +752,47 @@ export function WeddingSchedule() {
                   
                   {/* Venue Box */}
                   {event.venue && (
-                    <div className="flex items-start gap-2.5 p-2 rounded-xl bg-[#f4ebda]/85 border border-[#dfca9f]/60">
-                      <div className="w-6 h-6 rounded-full bg-[#ecd5a9] border border-[#cda252] flex items-center justify-center shrink-0 mt-0.5 text-[#7c5017]">
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <span className="font-cinzel text-[9px] tracking-widest text-[#825b29] uppercase font-bold block">
-                          Venue
-                        </span>
-                        <p className="font-cormorant font-semibold text-xs sm:text-sm text-[#341d0c] leading-tight">
-                          {event.venue}
-                        </p>
-                        {event.venueAddress && (
-                          <p className="font-cormorant text-[11px] text-[#6e5033] leading-tight">
-                            {event.venueAddress}
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-[#f4ebda]/90 border border-[#dfca9f]/75 shadow-xs">
+                      <div className="flex items-start gap-2.5">
+                        <div className="w-6 h-6 rounded-full bg-[#ecd5a9] border border-[#cda252] flex items-center justify-center shrink-0 mt-0.5 text-[#7c5017]">
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1">
+                          <span className="font-cinzel text-[9px] tracking-widest text-[#825b29] uppercase font-bold block">
+                            Venue
+                          </span>
+                          <p className="font-cormorant font-semibold text-xs sm:text-sm text-[#341d0c] leading-tight">
+                            {event.venue}
                           </p>
-                        )}
+                          {event.venueAddress && (
+                            <p className="font-cormorant text-[11px] text-[#6e5033] leading-tight mt-0.5">
+                              {event.venueAddress}
+                            </p>
+                          )}
+                        </div>
                       </div>
+
+                      {event.mapsUrl && (
+                        <div className="mt-2 pt-1.5 border-t border-[#dfca9f]/50">
+                          <a
+                            href={event.mapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-1.5 w-full py-1.5 px-3 rounded-lg bg-gradient-to-r from-[#e8d5ad] via-[#f1dfb8] to-[#e8d5ad] hover:from-[#dfc896] hover:to-[#e3cc9d] border border-[#c99f4e] text-[#4f2f0f] font-cinzel text-[10px] sm:text-[11px] font-bold tracking-wider shadow-xs transition-all active:scale-[0.98] cursor-pointer"
+                          >
+                            <svg className="w-3.5 h-3.5 text-[#8a5b1c]" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <span>VIEW ON GOOGLE MAPS</span>
+                            <svg className="w-2.5 h-2.5 text-[#8a5b1c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </a>
+                        </div>
+                      )}
                     </div>
                   )}
 
