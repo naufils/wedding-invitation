@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum WeddingStatus {
+  draft
+  published
+}
+
+enum AttendingStatus {
+  yes
+  no
+  maybe
+}
+
+enum MediaFileType {
+  image
+  video
+}
+
+enum DriveSyncStatus {
+  pending
+  synced
+  failed
+}
+
+enum UploadedBy {
+  couple
+  guest
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  authProvider String   @map("auth_provider")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  weddings Wedding[]
+
+  @@map("users")
+}
+
+model Wedding {
+  id                 String        @id @default(cuid())
+  userId             String        @map("user_id")
+  subdomainSlug      String        @unique @map("subdomain_slug")
+  coupleNames        Json          @map("couple_names")
+  weddingDate         DateTime      @map("wedding_date")
+  themeConfig        Json          @map("theme_config")
+  status             WeddingStatus @default(draft)
+  driveFolderId      String?       @map("drive_folder_id")
+  driveRefreshToken  String?       @map("drive_refresh_token")
+  paymentStatus      String        @default("unpaid") @map("payment_status")
+  createdAt          DateTime      @default(now()) @map("created_at")
+  updatedAt          DateTime      @updatedAt @map("updated_at")
+
+  user          User            @relation(fields: [userId], references: [id])
+  events        Event[]
+  rsvps         Rsvp[]
+  mediaUploads  MediaUpload[]
+  galleryPhotos GalleryPhoto[]
+
+  @@map("weddings")
+}
+
+model Event {
+  id            String   @id @default(cuid())
+  weddingId     String   @map("wedding_id")
+  name          String
+  date          DateTime
+  time          String
+  venueName     String   @map("venue_name")
+  venueAddress  String   @map("venue_address")
+  lat           Float?
+  lng           Float?
+  dressCode     String?  @map("dress_code")
+  outfitImageUrl String? @map("outfit_image_url")
+  orderIndex    Int      @map("order_index")
+
+  wedding Wedding @relation(fields: [weddingId], references: [id])
+
+  @@map("events")
+}
+
+model Rsvp {
+  id               String          @id @default(cuid())
+  weddingId        String          @map("wedding_id")
+  guestName        String          @map("guest_name")
+  phoneOrEmail     String          @map("phone_or_email")
+  attendingStatus  AttendingStatus @map("attending_status")
+  eventIds         String[]        @map("event_ids")
+  guestCount       Int             @map("guest_count")
+  dietaryNotes     String?         @map("dietary_notes")
+  submittedAt      DateTime        @default(now()) @map("submitted_at")
+
+  wedding Wedding @relation(fields: [weddingId], references: [id])
+
+  @@map("rsvps")
+}
+
+model MediaUpload {
+  id                  String          @id @default(cuid())
+  weddingId           String          @map("wedding_id")
+  uploadedByGuestName String          @map("uploaded_by_guest_name")
+  fileType            MediaFileType   @map("file_type")
+  storageKey          String          @map("storage_key")
+  driveFileId         String?         @map("drive_file_id")
+  driveSyncStatus     DriveSyncStatus @default(pending) @map("drive_sync_status")
+  fileSize            Int             @map("file_size")
+  createdAt           DateTime        @default(now()) @map("created_at")
+
+  wedding Wedding @relation(fields: [weddingId], references: [id])
+
+  @@map("media_uploads")
+}
+
+model GalleryPhoto {
+  id         String     @id @default(cuid())
+  weddingId  String     @map("wedding_id")
+  storageKey String     @map("storage_key")
+  caption    String?
+  orderIndex Int        @map("order_index")
+  uploadedBy UploadedBy @map("uploaded_by")
+
+  wedding Wedding @relation(fields: [weddingId], references: [id])
+
+  @@map("gallery_photos")
+}

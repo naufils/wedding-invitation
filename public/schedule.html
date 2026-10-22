@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Haseeb & Adeeba | Wedding Invitation & Functions Schedule</title>
+  
+  <!-- Royal Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Pinyon+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #120b07;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #2c180d;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .font-cinzel { font-family: 'Cinzel', Georgia, serif; }
+    .font-cormorant { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .font-script { font-family: 'Pinyon Script', 'Great Vibes', cursive; }
+    .font-arabic { font-family: 'Amiri', serif; }
+
+    /* Envelope Opening Overlay */
+    #envelope-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      transition: opacity 0.6s ease, visibility 0.6s;
+    }
+
+    .envelope-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .open-prompt {
+      position: relative;
+      z-index: 10;
+      margin-top: auto;
+      margin-bottom: 4.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .open-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(28, 18, 12, 0.85);
+      border: 2px solid #d4af37;
+      border-radius: 9999px;
+      padding: 10px 22px;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.45);
+      backdrop-filter: blur(8px);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(212,175,55,0.4); }
+      50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(212,175,55,0.7); }
+    }
+
+    /* Snap Scroll Container */
+    .snap-container {
+      width: 100%;
+      height: 100dvh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+    .snap-container::-webkit-scrollbar { display: none; }
+    .snap-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .snap-page {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      overflow: hidden;
+    }
+
+    /* Layers */
+    .bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .bg-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .bg-overlay-dark {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.70);
+      pointer-events: none;
+    }
+
+    .bg-radial-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(ellipse at center, rgba(184, 134, 11, 0.12) 0%, rgba(0, 0, 0, 0.55) 100%);
+      pointer-events: none;
+    }
+
+    .bg-overlay-warm {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(24,17,11,0.50) 0%, rgba(24,17,11,0.30) 45%, rgba(18,10,6,0.70) 100%);
+      pointer-events: none;
+    }
+
+    /* Royal Frame */
+    .royal-outer-frame {
+      pointer-events: none;
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 18px;
+      z-index: 20;
+    }
+    @media (min-width: 640px) {
+      .royal-outer-frame { inset: 24px; }
+    }
+    .royal-outer-frame::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: 14px;
+    }
+    .corner-tl, .corner-tr, .corner-bl, .corner-br {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-color: #d4af37;
+    }
+    .corner-tl { top: -2px; left: -2px; border-top: 2px solid #d4af37; border-left: 2px solid #d4af37; border-top-left-radius: 4px; }
+    .corner-tr { top: -2px; right: -2px; border-top: 2px solid #d4af37; border-right: 2px solid #d4af37; border-top-right-radius: 4px; }
+    .corner-bl { bottom: -2px; left: -2px; border-bottom: 2px solid #d4af37; border-left: 2px solid #d4af37; border-bottom-left-radius: 4px; }
+    .corner-br { bottom: -2px; right: -2px; border-bottom: 2px solid #d4af37; border-right: 2px solid #d4af37; border-bottom-right-radius: 4px; }
+
+    /* Hero Typography */
+    .hero-content {
+      position: relative;
+      z-index: 25;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Schedule Plaque */
+    .schedule-plaque {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      background: rgba(250, 246, 238, 0.95);
+      border: 2px solid rgba(212, 175, 55, 0.65);
+      border-radius: 34px;
+      padding: 1.2rem 1.2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* Badges & Elements */
+    .day-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f1e5cd;
+      border: 1px solid #cba657;
+      border-radius: 9999px;
+      padding: 2px 12px;
+      margin-bottom: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #63431d;
+    }
+    .day-badge .dot { width: 4px; height: 4px; border-radius: 50%; background: #c08e28; }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 4px auto;
+      width: 75%;
+    }
+    .divider .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #bfa15f, #bfa15f); }
+    .divider .line.rev { background: linear-gradient(270deg, transparent, #bfa15f, #bfa15f); }
+    .divider .ornament { color: #a67c29; font-size: 9px; }
+
+    .info-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(244, 235, 218, 0.88);
+      border: 1px solid rgba(223, 202, 159, 0.7);
+      border-radius: 12px;
+      padding: 6px 11px;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+    .info-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #ecd5a9;
+      border: 1px solid #cda252;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #7c5017;
+      margin-top: 1px;
+      font-size: 12px;
+    }
+    .info-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #825b29;
+      display: block;
+    }
+    .info-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      line-height: 1.2;
+      color: #341d0c;
+    }
+    .info-sub { font-size: 11px; color: #6e5033; line-height: 1.1; }
+
+    .callout-box {
+      background: linear-gradient(90deg, #edd9b1, #f7ebcf, #edd9b1);
+      border: 1px solid #b98e3b;
+      border-radius: 10px;
+      padding: 5px 10px;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: #523311;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* Fixed Navigation */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: linear-gradient(180deg, rgba(14,8,4,0.90) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .top-bar-title {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      color: #fbf1db;
+      pointer-events: auto;
+    }
+    .page-pill {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(36, 25, 17, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      border-radius: 9999px;
+      padding: 4px 12px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #f5ecd8;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+    }
+    .audio-btn {
+      pointer-events: auto;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(36, 25, 17, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      color: #fbf1db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .side-nav {
+      position: fixed;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      background: rgba(24, 17, 11, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 9999px;
+      padding: 9px 5px;
+      backdrop-filter: blur(6px);
+    }
+    .side-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 9999px;
+      background: rgba(236, 217, 184, 0.7);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      outline: none;
+    }
+    .side-dot.active {
+      height: 15px;
+      background: linear-gradient(180deg, #fde68a, #d97706);
+      box-shadow: 0 0 8px #f59e0b;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      bottom: 12px;
+      left: 18px;
+      right: 18px;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+    .nav-btn {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(36, 25, 17, 0.88);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      border-radius: 9999px;
+      padding: 5px 12px;
+      color: #f5ecd8;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .bounce { animation: bounce 1.8s infinite; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================== -->
+  <!-- ENVELOPE OPENING SCENE ("You Are Invited")     -->
+  <!-- ============================================== -->
+  <div id="envelope-screen" onclick="openEnvelope()">
+    <video class="envelope-video" id="intro-video" src="./envelope/intro.mp4" poster="./envelope/intro-poster.jpg" playsinline preload="auto"></video>
+    
+    <!-- Tap prompt -->
+    <div class="open-prompt" id="envelope-prompt">
+      <div class="open-badge">
+        <span style="color:#d4af37; font-size:14px;">✉️</span>
+        <span class="font-cinzel" style="font-size:12px; font-weight:700; letter-spacing:0.25em; color:#fbf1db; text-transform:uppercase;">
+          Tap to Open Invitation
+        </span>
+        <span style="color:#d4af37; font-size:12px;">✦</span>
+      </div>
+      <p class="font-cormorant" style="font-style:italic; font-size:13px; color:rgba(255,255,255,0.85); text-shadow:0 1px 4px rgba(0,0,0,0.8);">
+        Click anywhere to reveal the invitation
+      </p>
+    </div>
+  </div>
+
+  <!-- Top Floating Header -->
+  <div class="top-bar">
+    <div class="top-bar-title" id="brand-title">HASEEB & ADEEBA</div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <button class="audio-btn" id="audio-toggle" onclick="toggleAudio()" title="Toggle Sound">
+        <svg id="audio-icon-muted" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="m17 9 6 6M23 9l-6 6"/></svg>
+        <svg id="audio-icon-playing" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
+      </button>
+      <div class="page-pill" id="page-indicator" onclick="replayEnvelope()">
+        <span style="width:5px;height:5px;border-radius:50%;background:#e3bc63;display:inline-block;"></span>
+        <span id="page-text">OVERVIEW ▾</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side Quick Jump Dots -->
+  <div class="side-nav">
+    <button class="side-dot active" onclick="goToPage(0)" title="Invitation Card"></button>
+    <button class="side-dot" onclick="goToPage(1)" title="Day 1"></button>
+    <button class="side-dot" onclick="goToPage(2)" title="Day 2"></button>
+    <button class="side-dot" onclick="goToPage(3)" title="Day 3"></button>
+    <button class="side-dot" onclick="goToPage(4)" title="Day 4"></button>
+    <button class="side-dot" onclick="goToPage(5)" title="Day 5"></button>
+    <button class="side-dot" onclick="goToPage(6)" title="Day 6"></button>
+    <button class="side-dot" onclick="goToPage(7)" title="Day 7"></button>
+    <button class="side-dot" onclick="goToPage(8)" title="Day 8"></button>
+  </div>
+
+  <!-- Bottom Prev / Next Navigation -->
+  <div class="bottom-bar">
+    <button class="nav-btn" id="prev-btn" style="visibility:hidden;" onclick="prevPage()">‹ PREV</button>
+    <button class="nav-btn" id="next-btn" onclick="nextPage()">NEXT ›</button>
+  </div>
+
+  <!-- Main Snap-Scroll Container -->
+  <div class="snap-container" id="container">
+
+    <!-- ============================================== -->
+    <!-- CARD 0: REVEALED HERO CARD (Video Playing & Overlay) -->
+    <!-- ============================================== -->
+    <section class="snap-page" id="slide-0">
+      <video class="bg-video" id="reveal-video" src="./envelope/reveal.mp4" poster="./envelope/reveal-poster.jpg" autoplay loop muted playsinline></video>
+      <div class="bg-overlay-dark"></div>
+      <div class="bg-radial-glow"></div>
+
+      <!-- Outer Frame with Gold Corner Accents -->
+      <div class="royal-outer-frame">
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+      </div>
+
+      <!-- Hero Typography Content -->
+      <div class="hero-content">
+        <div class="font-arabic" style="font-size: 28px; color: #eddcb2; margin-bottom: 2px;">
+          بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+        </div>
+
+        <p class="font-cinzel" style="font-size: 11px; letter-spacing: 0.28em; color: #d4af37; font-weight: 500; line-height: 1.4; text-transform: uppercase;">
+          IN THE NAME OF ALLAH,<br>THE MOST GRACIOUS, THE MOST MERCIFUL
+        </p>
+
+        <div class="divider" style="width: 140px; margin: 8px auto;">
+          <div class="line"></div>
+          <div class="ornament">✦</div>
+          <div class="line rev"></div>
+        </div>
+
+        <p class="font-cinzel" style="font-size: 11px; letter-spacing: 0.24em; color: rgba(255,255,255,0.92); line-height: 1.45; text-transform: uppercase;">
+          TOGETHER WITH THEIR FAMILIES<br>
+          IT IS OUR PLEASURE TO INVITE YOU TO<br>
+          THE WEDDING CELEBRATION OF
+        </p>
+
+        <!-- Names: Haseeb and Adeeba -->
+        <div style="margin: 6px 0;">
+          <h1 class="font-script" style="font-size: 58px; color: #fdfbf7; line-height: 1.05; text-shadow: 0 4px 20px rgba(212,175,55,0.45);">
+            Haseeb
+          </h1>
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin: 2px 0;">
+            <div style="width:36px; height:1px; background:linear-gradient(90deg, transparent, #d4af37);"></div>
+            <span class="font-cormorant" style="font-style:italic; font-size:17px; color:#eddcb2;">and</span>
+            <div style="width:36px; height:1px; background:linear-gradient(270deg, transparent, #d4af37);"></div>
+          </div>
+          <h1 class="font-script" style="font-size: 58px; color: #fdfbf7; line-height: 1.05; text-shadow: 0 4px 20px rgba(212,175,55,0.45);">
+            Adeeba
+          </h1>
+        </div>
+
+        <div class="divider" style="width: 140px; margin: 6px auto;">
+          <div class="line"></div>
+          <div class="ornament">✦</div>
+          <div class="line rev"></div>
+        </div>
+
+        <p class="font-arabic" style="font-size: 22px; color: #eddcb2;">
+          وَخَلَقْنَاكُمْ أَزْوَاجًا
+        </p>
+        <p class="font-cormorant" style="font-style: italic; font-size: 14px; color: rgba(255,255,255,0.95); margin-top: 1px;">
+          “And We created you in pairs.”
+        </p>
+        <p class="font-cinzel" style="font-size: 10px; letter-spacing: 0.25em; color: #d4af37; text-transform: uppercase; margin-top: 2px;">
+          QURAN 78:8
+        </p>
+
+        <!-- Scroll Down Action Button -->
+        <div class="bounce" style="cursor: pointer; margin-top: 18px;" onclick="goToPage(1)">
+          <span class="font-cinzel" style="font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #d4af37; display: block; margin-bottom: 4px;">
+            SCROLL DOWN
+          </span>
+          <div style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(212,175,55,0.6); display: inline-flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3);">
+            <svg width="14" height="14" fill="none" stroke="#d4af37" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CARD 1: DAY 1 – RAJJAGA -->
+    <!-- ============================================== -->
+    <section class="snap-page" id="slide-1">
+      <div class="bg-layer" style="background-image: url('./wedding-schedule/bg-1.jpg');"></div>
+      <div class="bg-overlay-warm"></div>
+
+      <div class="royal-outer-frame">
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+      </div>
+
+      <div class="schedule-plaque">
+        <div class="day-badge"><span class="dot"></span>DAY 1 OF 8<span class="dot"></span></div>
+        <h3 class="font-cinzel" style="font-size: 13px; font-weight: 700; letter-spacing: 0.15em; color: #4b2f15;">25th October 2026</h3>
+        <p class="font-cormorant" style="font-style: italic; font-size: 12px; color: #8c672e; font-weight: 600;">Sunday</p>
+
+        <div class="font-arabic" style="font-size: 18px; color: #946922; margin-top: 2px;">شبِ رت جگا</div>
+        <h2 class="font-cinzel" style="font-size: 22px; font-weight: 700; letter-spacing: 0.12em; color: #2c170a; text-transform: uppercase;">Rajjaga</h2>
+        <div class="font-script" style="font-size: 26px; color: #9c6f21; margin-bottom: 4px;">A Night of Awakening & Blessings</div>
+
+        <div class="divider"><div class="line"></div><div class="ornament">✤ ⚜ ✤</div><div class="line rev"></div></div>
+
+        <div class="info-box">
+          <div class="info-icon">📍</div>
+          <div>
+            <span class="info-label">Venue</span>
+            <div class="info-val">At Home</div>
+            <div class="info-sub">Family Residence</div>
+          </div>
+        </div>
+
+        <p class="font-cormorant" style="font-size: 13px; color: #5a422d; line-height: 1.4; margin: 8px 0 6px;">
+          An intimate, warm family evening of traditional wedding songs, heartfelt blessings, and the auspicious commencement of celebrations.
+        </p>
+
+        <button onclick="goToPage(2)" style="background:#f0e4cc; border:1px solid #caa455; border-radius:9999px; padding:4px 14px; font-family:'Cinzel', serif; font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#6d4617; cursor:pointer;">
+          Day 2: Sufi Night ↓
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CARD 2: DAY 2 – SUFI NIGHT -->
+    <!-- ============================================== -->
+    <section class="snap-page" id="slide-2">
+      <div class="bg-layer" style="background-image: url('./wedding-schedule/bg-2.jpg');"></div>
+      <div class="bg-overlay-warm"></div>
+
+      <div class="royal-outer-frame">
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+      </div>
+
+      <div class="schedule-plaque">
+        <div class="day-badge"><span class="dot"></span>DAY 2 OF 8<span class="dot"></span></div>
+        <h3 class="font-cinzel" style="font-size: 13px; font-weight: 700; letter-spacing: 0.15em; color: #4b2f15;">26th October 2026</h3>
+        <p class="font-cormorant" style="font-style: italic; font-size: 12px; color: #8c672e; font-weight: 600;">Monday</p>
+
+        <div class="font-arabic" style="font-size: 18px; color: #946922; margin-top: 2px;">محفلِ قوالی</div>
+        <h2 class="font-cinzel" style="font-size: 22px; font-weight: 700; letter-spacing: 0.12em; color: #2c170a; text-transform: uppercase;">Sufi Night</h2>
+        <div class="font-script" style="font-size: 26px; color: #9c6f21; margin-bottom: 4px;">An evening of qawwali</div>
+
+        <div class="divider"><div class="line"></div><div class="ornament">✤ ⚜ ✤</div><div class="line rev"></div></div>
+
+        <div class="info-box">
+          <div class="info-icon">📍</div>
+          <div>
+            <span class="info-label">Venue</span>
+            <div class="info-val">Jai Hind Farm House</div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-icon">⏰</div>
+          <div>
+            <span class="info-label">Time</span>
+            <div class="info-val">7:00 PM to 11:00 PM</div>
+          </div>
+        </div>
+
+        <p class="font-cormorant" style="font-size: 13px; color: #5a422d; line-height: 1.4; margin: 8px 0 6px;">
+          An enchanting gathering filled with soulful Sufiana qawwalis, divine verses, and mesmerizing musical celebrations under the evening stars.
+        </p>
+
+        <button onclick="goToPage(3)" style="background:#f0e4cc; border:1px solid #caa455; border-radius:9999px; padding:4px 14px; font-family:'Cinzel', serif; font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#6d4617; cursor:pointer;">
+          Day 3: Haldi Ceremony ↓
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CARD 3: DAY 3 – HALDI -->
+    <!-- ============================================== -->
+    <section class="snap-page" id="slide-3">
+      <div class="bg-layer" style="background-image: url('./wedding-schedule/bg-3.jpg');"></div>
+      <div class="bg-overlay-warm"></div>
+
+      <div class="royal-outer-frame">
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+      </div>
+
+      <div class="schedule-plaque">
+        <div class="day-badge"><span class="dot"></span>DAY 3 OF 8<span class="dot"></span></div>
+        <h3 class="font-cinzel" style="font-size: 13px; font-weight: 700; letter-spacing: 0.15em; color: #4b2f15;">27th October 2026</h3>
+        <p class="font-cormorant" style="font-style: italic; font-size: 12px; color: #8c672e; font-weight: 600;">Tuesday</p>
+
+        <div class="font-arabic" style="font-size: 18px; color: #946922; margin-top: 2px;">رنگِ ہلدی</div>
+        <h2 class="font-cinzel" style="font-size: 22px; font-weight: 700; letter-spacing: 0.12em; color: #2c170a; text-transform: uppercase;">Haldi Ceremony</h2>
+        <div class="font-script" style="font-size: 26px; color: #9c6f21; margin-bottom: 4px;">Range haldi</div>
+
+        <div class="divider"><div class="line"></div><div class="ornament">✤ ⚜ ✤</div><div class="line rev"></div></div>
+
+        <div class="info-box">
+          <div class="info-icon">📍</div>
+          <div>
+            <span class="info-label">Venue</span>
+            <div class="info-val">Unnati Lawns</div>
+            <div class="info-sub">Kranti Chowk, beside DFC Gym</div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-icon">⏰</div>
+          <div>
+            <span class="info-label">Time</span>
+            <div class="info-val">4:00 PM</div>
+          </div>
+        </div>
+
+        <div class="info-box" style="flex-direction: column; gap: 4px;">
+          <span class="info-label">Dress Code</span>
+          <div class="info-val" style="display:flex; align-items:center; gap:8px;">
+            <span>Orange and Hot Pink</span>
+            <span style="display:inline-flex; gap:3px;">
+              <span style="width:12px; height:12px; border-radius:50%; background:#f97316; display:inline-block; border:1px solid #fff;"></span>
+              <span style="width:12px; height:12px; border-radius:50%; background:#ec4899; display:inline-block; border:1px solid #fff;"></span>
+            </span>
+          </div>
+        </div>
+
+        <div style="background: rgba(237, 227, 207, 0.75); border: 1px solid #d3be94; border-radius: 10px; padding: 5px 10px; margin-bottom: 6px;">
+          <span class="info-label" style="display:inline; margin-right:4px;">Hairstyle:</span>
+          <span style="font-weight:600; font-size:12px; color:#3a2311;">Paranda (Not compulsory)</span>
+        </div>
+
+        <button onclick="goToPage(4)" style="background:#f0e4cc; border:1px solid #caa455; border-radius:9999px; padding:4px 14px; font-family:'Cinzel', serif; font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#6d4617; cursor:pointer;">
+          Day 4: Sachak ki Shaam ↓
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CARD 4: DAY 4 – SACHAK -->
+    <!-- ============================================== -->
+    <section class="snap-page" id="slide-4">
+      <div class="bg-layer" style="background-image: url('./wedding-schedule/bg-4.jpg');"></div>
+      <div class="bg-overlay-warm"></div>
+
+      <div class="royal-outer-frame">
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+      </div>
+
+      <div class="schedule-plaque">
+        <div class="day-badge"><span class="dot"></span>DAY 4 OF 8<span class="dot"></span></div>
+        <h3 class="font-cinzel" style="font-size: 13px; font-weight: 700; letter-spacing: 0.15em; color: #4b2f15;">28th October 2026</h3>
+        <p class="font-cormorant" style="font-style: italic; font-size: 12px; color: #8c672e; font-weight: 600;">Wednesday</p>
+
+        <div class="font-arabic" style="font-size: 18px; color: #946922; margin-top: 2px;">ساچق کی شام</div>
+        <h2 class="font-cinzel" style="font-size: 22px; font-weight: 700; letter-spacing: 0.12em; color: #2c170a; text-transform: uppercase;">Sachak</h2>
+        <div class="font-script" style="font-size: 26px; color: #9c6f21; margin-bottom: 4px;">Sachak ki shaam</div>
+
+        <div class="divider"><div class="line"></div><div class="ornament">✤ ⚜ ✤</div><div class="line rev"></div></div>
+
+        <div class="info-box">
+          <div class="info-icon">📍</div>
+          <div>
+            <span class="info-label">Venue</span>
+            <div class="info-val">Unnati Lawns</div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-icon">⏰</div>
+          <div>
+            <span class="info-label">Time</span>
+            <div class="info-val">5:00 PM</div>
+          </div>
+        </div>
+
+        <div class="info-box" style="flex-direction: column; gap: 4px;">
+          <span class="info-label">Dress Code</span>
+          <div class="info-val" style="display:flex; align-items:center; gap:8px;">
+            <span>Any shade of Green</span>
+            <span style="display:inline-flex; gap:3px;">
+              <span style="width:12px; height:12px; border-radius:50%; background:#047857; display:inline-block; border:1px solid #fff;"></span>
+              <span style="width:12px; height:12px; border-radius:50%; background:#65a30d; display:inline-block; border:1px solid #fff;"></span>
+              <span style="width:12px; height:12px; border-radius:50%; background:#10b981; display:inline-block; border:1px solid #fff;"></span>
+            </span>
+          </div>
+        </div>
+
+        <div style="background: rgba(237, 227, 207, 0.75); border: 1px solid #d3be94; border-radius: 10px; padding: 5px 10px; margin-bottom: 6px;">
+          <span class="info-label" style="display:inline; margin-right:4px;">Jewellery:</span>
+          <span style="font-weight:600; font-size:12px; color:#3a2311;">Earring supporters (Not compulsory)</span>
+        </div>
+
+        <button onclick="goToPage(5)" style="background:#f0e4cc; border:1px solid #caa455; border-radius:9999px; padding:4px 14px; font-family:'Cinzel', serif; font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#6d4617; cursor:pointer;">
+          Day 5: Nikkah Ceremony ↓
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CARD 5: DAY 5 – NIKKAH CEREMONY -->
+    <!-- ============================================== -->
+    <section class="snap-page" id="slide-5">
+      <div class="bg-layer" style="background-image: url('./wedding-schedule/bg-1.jpg');"></div>
+      <div class="bg-overlay-warm"></div>
+
+      <div class="royal-outer-frame">
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+      </div>
+
+      <div class="schedule-plaque">
+        <div class="day-badge"><span class="dot"></span>DAY 5 OF 8<span class="dot"></span></div>
+        <h3 class="font-cinzel" style="font-size: 13px; font-weight: 700; letter-spacing: 0.15em; color: #4b2f15;">29th October 2026</h3>
+        <p class="font-cormorant" style="font-style: italic; font-size: 12px; color: #8c672e; font-weight: 600;">Thursday</p>
+
+        <div class="font-arabic" style="font-size: 18px; color: #946922; margin-top: 2px;">عقدِ نکاح</div>
+        <h2 class="font-cinzel" style="font-size: 22px; font-weight: 700; letter-spacing: 0.12em; color: #2c170a; text-transform: uppercase;">Nikkah Ceremony</h2>
+        <div class="font-script" style="font-size: 26px; color: #9c6f21; margin-bottom: 4px;">The Sacred Covenant & Qubool</div>
+
+        <div class="divider"><div class="line"></div><div class="ornament">✤ ⚜ ✤</div><div class="line rev"></div></div>
+
+        <div class="info-box">
+          <div class="info-icon">📍</div>
+          <div>
+            <span class="info-label">Venue</span>
+            <div class="info-val">Ellora Lawns</div>
+          </div>
+        </div>
+
+        <div class="info-box" style="flex-direction: column; gap: 4px;">
+          <span class="info-label">Nikkah Moment Outfit</span>
+          <div class="info-val">White dress for the hijab-qubool moment.</div>
+        </div>
+
+        <div style="background: rgba(242, 231, 211, 0.9); border: 1px solid #d5bb82; border-radius: 12px; padding: 6px 10px; margin-bottom: 6px;">
+          <span class="info-label" style="color: #784e1b; margin-bottom: 2px;">🔹 Evening Dinner</span>
+          <p style="font-size: 12px; font-weight: 600; color: #392211; font-style: italic;">
+            For the evening dinner, you can wear any outfit of your choice.
+          </p>
+        </div>
+
+        <button onclick="goToPage(6)" style="background:#f0e4cc; border:1px solid #caa455; border-radius:9999px; padding:4px 14px; font-family:'Cinzel', serif; font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#6d4617; cursor:pointer;">
+          Day 6: Walima ↓
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CARD 6: DAY 6 – WALIMA -->
+    <!-- ============================================== -->
+    <section class="snap-page" id="slide-6">
+      <div class="bg-layer" style="background-image: url('./wedding-schedule/bg-2.jpg');"></div>
+      <div class="bg-overlay-warm"></div>
+
+      <div class="royal-outer-frame">
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+      </div>
+
+      <div class="schedule-plaque">
+        <div class="day-badge"><span class="dot"></span>DAY 6 OF 8<span class="dot"></span></div>
+        <h3 class="font-cinzel" style="font-size: 13px; font-weight: 700; letter-spacing: 0.15em; color: #4b2f15;">30th October 2026</h3>
+        <p class="font-cormorant" style="font-style: italic; font-size: 12px; color: #8c672e; font-weight: 600;">Friday</p>
+
+        <div class="font-arabic" style="font-size: 18px; color: #946922; margin-top: 2px;">دعوتِ ولیمہ</div>
+        <h2 class="font-cinzel" style="font-size: 22px; font-weight: 700; letter-spacing: 0.12em; color: #2c170a; text-transform: uppercase;">Walima</h2>
+        <div class="font-script" style="font-size: 26px; color: #9c6f21; margin-bottom: 4px;">A Grand Feast of Gratitude</div>
+
+        <div class="divider"><div class="line"></div><div class="ornament">✤ ⚜ ✤</div><div class="line rev"></div></div>
+
+        <div class="info-box">
+          <div class="info-icon">📍</div>
+          <div>
+            <span class="info-label">Venue</span>
+            <div class="info-val">Ikon Celebration</div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-icon">⏰</div>
+          <div>
+            <span class="info-label">Reaching Time</span>
+            <div class="info-val">8:00 PM</div>
+          </div>
+        </div>
+
+        <p class="font-cormorant" style="font-size: 13px; color: #5a422d; line-height: 1.4; margin: 8px 0 6px;">
+          A blessed Sunnah banquet sharing heartfelt hospitality, sumptuous feast, and prayers with loved ones.
+        </p>
+
+        <button onclick="goToPage(7)" style="background:#f0e4cc; border:1px solid #caa455; border-radius:9999px; padding:4px 14px; font-family:'Cinzel', serif; font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#6d4617; cursor:pointer;">
+          Day 7: Gap Day ↓
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CARD 7: DAY 7 – GAP DAY -->
+    <!-- ============================================== -->
+    <section class="snap-page" id="slide-7">
+      <div class="bg-layer" style="background-image: url('./wedding-schedule/bg-3.jpg');"></div>
+      <div class="bg-overlay-warm"></div>
+
+      <div class="royal-outer-frame">
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+      </div>
+
+      <div class="schedule-plaque">
+        <div class="day-badge"><span class="dot"></span>DAY 7 OF 8<span class="dot"></span></div>
+        <h3 class="font-cinzel" style="font-size: 13px; font-weight: 700; letter-spacing: 0.15em; color: #4b2f15;">31st October 2026</h3>
+        <p class="font-cormorant" style="font-style: italic; font-size: 12px; color: #8c672e; font-weight: 600;">Saturday</p>
+
+        <div class="font-arabic" style="font-size: 18px; color: #946922; margin-top: 2px;">روزِ آرام و راحت</div>
+        <h2 class="font-cinzel" style="font-size: 22px; font-weight: 700; letter-spacing: 0.12em; color: #2c170a; text-transform: uppercase;">Gap Day</h2>
+        <div class="font-script" style="font-size: 26px; color: #9c6f21; margin-bottom: 4px;">A Day of Leisure & Rest</div>
+
+        <div class="divider"><div class="line"></div><div class="ornament">✤ ⚜ ✤</div><div class="line rev"></div></div>
+
+        <p class="font-cormorant" style="font-size: 14px; color: #5a422d; line-height: 1.5; margin: 10px 0 8px;">
+          A peaceful day reserved for rest, relaxation, and preparing your finest ensembles for the grand finale reception tomorrow.
+        </p>
+
+        <div class="callout-box">
+          ✨ Rest your dancing feet & get ready for tomorrow! ✨
+        </div>
+
+        <div style="margin-top: 12px;">
+          <button onclick="goToPage(8)" style="background:#f0e4cc; border:1px solid #caa455; border-radius:9999px; padding:4px 14px; font-family:'Cinzel', serif; font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#6d4617; cursor:pointer;">
+            Day 8: Grand Reception ↓
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CARD 8: DAY 8 – RECEPTION -->
+    <!-- ============================================== -->
+    <section class="snap-page" id="slide-8">
+      <div class="bg-layer" style="background-image: url('./wedding-schedule/bg-4.jpg');"></div>
+      <div class="bg-overlay-warm"></div>
+
+      <div class="royal-outer-frame">
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+      </div>
+
+      <div class="schedule-plaque">
+        <div class="day-badge"><span class="dot"></span>DAY 8 OF 8<span class="dot"></span></div>
+        <h3 class="font-cinzel" style="font-size: 13px; font-weight: 700; letter-spacing: 0.15em; color: #4b2f15;">1st November 2026</h3>
+        <p class="font-cormorant" style="font-style: italic; font-size: 12px; color: #8c672e; font-weight: 600;">Sunday</p>
+
+        <div class="font-arabic" style="font-size: 18px; color: #946922; margin-top: 2px;">شاندار استقبالیہ</div>
+        <h2 class="font-cinzel" style="font-size: 22px; font-weight: 700; letter-spacing: 0.12em; color: #2c170a; text-transform: uppercase;">Reception</h2>
+        <div class="font-script" style="font-size: 26px; color: #9c6f21; margin-bottom: 4px;">The Grand Finale Celebration</div>
+
+        <div class="divider"><div class="line"></div><div class="ornament">✤ ⚜ ✤</div><div class="line rev"></div></div>
+
+        <div class="info-box">
+          <div class="info-icon">📍</div>
+          <div>
+            <span class="info-label">Venue</span>
+            <div class="info-val">Ikon Celebration</div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-icon">⏰</div>
+          <div>
+            <span class="info-label">Reaching Time</span>
+            <div class="info-val">8:00 PM</div>
+          </div>
+        </div>
+
+        <div class="info-box" style="flex-direction: column; gap: 4px;">
+          <span class="info-label">Dress Code</span>
+          <div class="info-val">Pastel-coloured saree with a dupatta.</div>
+        </div>
+
+        <div class="callout-box" style="border: 2px solid #b3822d; box-shadow: 0 2px 8px rgba(179,130,45,0.25);">
+          ⚜️ Everyone has to drape dupatta ⚜️
+        </div>
+
+        <p class="font-cormorant" style="font-style: italic; font-size: 13px; color: #775225; font-weight: 600; margin-top: 8px;">
+          We eagerly look forward to celebrating with you! ✨
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <audio id="bg-music" src="./bg-music.mp3" loop preload="auto"></audio>
+
+  <script>
+    const bgMusic = document.getElementById('bg-music');
+    const envelopeScreen = document.getElementById('envelope-screen');
+    const introVideo = document.getElementById('intro-video');
+    const envelopePrompt = document.getElementById('envelope-prompt');
+    const container = document.getElementById('container');
+    const brandTitle = document.getElementById('brand-title');
+    const pageText = document.getElementById('page-text');
+    const dots = document.querySelectorAll('.side-dot');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const revealVideo = document.getElementById('reveal-video');
+    const audioToggle = document.getElementById('audio-toggle');
+    const iconMuted = document.getElementById('audio-icon-muted');
+    const iconPlaying = document.getElementById('audio-icon-playing');
+    const totalPages = 9;
+
+    let isOpened = false;
+
+    function openEnvelope() {
+      if (isOpened) return;
+      envelopePrompt.style.display = 'none';
+      if (bgMusic) {
+        bgMusic.muted = false;
+        bgMusic.play().catch(() => {});
+        iconMuted.style.display = 'none';
+        iconPlaying.style.display = 'block';
+      }
+      introVideo.muted = true;
+      introVideo.play().catch(() => {
+        completeOpening();
+      });
+      introVideo.onended = completeOpening;
+    }
+
+    function completeOpening() {
+      if (isOpened) return;
+      isOpened = true;
+      envelopeScreen.style.opacity = '0';
+      setTimeout(() => {
+        envelopeScreen.style.visibility = 'hidden';
+      }, 600);
+      revealVideo.muted = true;
+      revealVideo.play().catch(() => {});
+    }
+
+    function replayEnvelope() {
+      isOpened = false;
+      envelopeScreen.style.visibility = 'visible';
+      envelopeScreen.style.opacity = '1';
+      envelopePrompt.style.display = 'flex';
+      if (bgMusic) {
+        bgMusic.currentTime = 0;
+        bgMusic.play().catch(() => {});
+      }
+      introVideo.currentTime = 0;
+      goToPage(0);
+    }
+
+    function toggleAudio() {
+      if (!bgMusic) return;
+      if (bgMusic.paused || bgMusic.muted) {
+        bgMusic.muted = false;
+        bgMusic.play().catch(() => {});
+        iconMuted.style.display = 'none';
+        iconPlaying.style.display = 'block';
+      } else {
+        bgMusic.muted = true;
+        bgMusic.pause();
+        iconMuted.style.display = 'block';
+        iconPlaying.style.display = 'none';
+      }
+    }
+
+    function updateNav(idx) {
+      dots.forEach((dot, i) => {
+        if (i === idx) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      if (idx === 0) {
+        brandTitle.textContent = "HASEEB & ADEEBA";
+        prevBtn.style.visibility = "hidden";
+      } else {
+        brandTitle.textContent = "WEDDING ITINERARY";
+        prevBtn.style.visibility = "visible";
+      }
+
+      if (idx === totalPages - 1) {
+        nextBtn.style.visibility = "hidden";
+      } else {
+        nextBtn.style.visibility = "visible";
+      }
+    }
+
+    container.addEventListener('scroll', () => {
+      const scrollPos = container.scrollTop;
+      const pageHeight = container.clientHeight;
+      if (pageHeight > 0) {
+        const idx = Math.round(scrollPos / pageHeight);
+        updateNav(idx);
+      }
+    }, { passive: true });
+
+    function goToPage(index) {
+      const pageHeight = container.clientHeight;
+      container.scrollTo({
+        top: index * pageHeight,
+        behavior: 'smooth'
+      });
+    }
+
+    function nextPage() {
+      const pageHeight = container.clientHeight;
+      const currentIdx = Math.round(container.scrollTop / pageHeight);
+      if (currentIdx < totalPages - 1) {
+        goToPage(currentIdx + 1);
+      }
+    }
+
+    function prevPage() {
+      const pageHeight = container.clientHeight;
+      const currentIdx = Math.round(container.scrollTop / pageHeight);
+      if (currentIdx > 0) {
+        goToPage(currentIdx - 1);
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (!isOpened) return;
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextPage();
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevPage();
+      }
+    });
+  </script>
+</body>
+</html>

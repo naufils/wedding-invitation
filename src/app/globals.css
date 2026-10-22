@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+/* This product is light-only by design (warm ivory palette, no dark mode).
+   Without this, Tailwind's default `dark:` variant follows the OS/browser's
+   prefers-color-scheme automatically, which only flipped scattered text
+   colors (not backgrounds), producing white-on-cream invisible headings.
+   Scoping `dark:` to an explicit `.dark` class (never applied) neutralizes
+   every `dark:` utility across the app until dark mode is a real feature. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf6ee;
+  --foreground: #3a2c1a;
 }
 
 @theme inline {
@@ -10,14 +18,48 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-fancy: var(--font-fancy);
+  --font-script: var(--font-script);
+  --font-cinzel: var(--font-cinzel);
+  --font-cormorant: var(--font-cormorant);
+  --font-arabic: var(--font-arabic);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.font-arabic {
+  font-family: var(--font-arabic), "Amiri", "Traditional Arabic", serif;
 }
+
+.font-cinzel {
+  font-family: var(--font-cinzel), "Cinzel", Georgia, serif;
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+}
+
+.font-script {
+  font-family: var(--font-script), var(--font-fancy), "Pinyon Script", "Great Vibes", cursive;
+}
+
+/* Snap scroll and hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.snap-container {
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
 
 body {
   background: var(--background);
