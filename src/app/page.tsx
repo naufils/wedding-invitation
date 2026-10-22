@@ -7,11 +7,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Wedding of Haseeb & Adeeba",
     description: "You are invited to the wedding of Haseeb and Adeeba. Join us in celebrating our 8-day wedding festivities from 25th October to 1st November 2026.",
-    url: "/",
     siteName: "Wedding of Haseeb & Adeeba",
     images: [
       {
-        url: "/og-image-v3.jpg",
+        url: "/og-wedding-banner.jpg",
         width: 1200,
         height: 630,
         type: "image/jpeg",
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Wedding of Haseeb & Adeeba",
     description: "You are invited to the wedding of Haseeb and Adeeba. Join us in celebrating our 8-day wedding festivities.",
-    images: ["/og-image-v3.jpg"],
+    images: ["/og-wedding-banner.jpg"],
   },
 };
 
