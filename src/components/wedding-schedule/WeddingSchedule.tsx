@@ -113,7 +113,7 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     dayOfWeek: "Thursday",
     title: "Nikkah Ceremony",
     urduTitle: "عقدِ نکاح",
-    subtitle: "Two Souls United in Love & Faith",
+    subtitle: "A beautiful beginning written by Allah",
     venue: "Ellora Lawns",
     venueAddress: "Chhatrapati Sambhajinagar",
     mapsUrl: "https://maps.app.goo.gl/7kvLoxuC5CGF1Hpr5",
