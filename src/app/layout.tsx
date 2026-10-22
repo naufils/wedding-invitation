@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image-v3.jpg",
         width: 1200,
         height: 630,
         type: "image/jpeg",
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Wedding of Haseeb & Adeeba",
     description: "You are invited to the wedding of Haseeb and Adeeba. View our 8-day celebration itinerary, ceremonies & venue details.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image-v3.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -121,8 +121,8 @@ export default function RootLayout({
         {/* WhatsApp & Social OpenGraph fallbacks */}
         <meta property="og:title" content="Wedding of Haseeb & Adeeba" />
         <meta property="og:description" content="You are invited to the wedding of Haseeb and Adeeba. Join us in celebrating our 8-day wedding festivities from 25th October to 1st November 2026." />
-        <meta property="og:image" content={`${siteUrl}/og-image.jpg?v=2`} />
-        <meta property="og:image:secure_url" content={`${siteUrl}/og-image.jpg?v=2`} />
+        <meta property="og:image" content={`${siteUrl}/og-image-v3.jpg`} />
+        <meta property="og:image:secure_url" content={`${siteUrl}/og-image-v3.jpg`} />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -133,7 +133,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Wedding of Haseeb & Adeeba" />
         <meta name="twitter:description" content="You are invited to the wedding of Haseeb and Adeeba. Join us in celebrating our 8-day wedding festivities." />
-        <meta name="twitter:image" content={`${siteUrl}/og-image.jpg?v=2`} />
+        <meta name="twitter:image" content={`${siteUrl}/og-image-v3.jpg`} />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
