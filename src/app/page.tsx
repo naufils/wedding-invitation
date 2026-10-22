@@ -11,16 +11,9 @@ export const metadata: Metadata = {
     siteName: "Wedding of Haseeb & Adeeba",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.jpg?v=2",
         width: 1200,
         height: 630,
-        type: "image/jpeg",
-        alt: "You are invited to the wedding of Haseeb and Adeeba",
-      },
-      {
-        url: "/wedding-card-portrait.jpg",
-        width: 682,
-        height: 1024,
         type: "image/jpeg",
         alt: "You are invited to the wedding of Haseeb and Adeeba",
       },
@@ -30,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Wedding of Haseeb & Adeeba",
     description: "You are invited to the wedding of Haseeb and Adeeba. Join us in celebrating our 8-day wedding festivities.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.jpg?v=2"],
   },
 };
 

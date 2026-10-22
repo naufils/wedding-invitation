@@ -15,6 +15,8 @@ interface WeddingDay {
   venueAddress?: string;
   mapsUrl?: string;
   time?: string;
+  ladiesAttire?: string;
+  gentsAttire?: string;
   outfit?: string;
   outfitColors?: { name: string; hex: string }[];
   hairstyle?: string;
@@ -70,11 +72,12 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     venueAddress: "Kranti Chowk, beside DFC Gym, Chhatrapati Sambhajinagar",
     mapsUrl: "https://maps.app.goo.gl/KMU3rtJpqoASuoa38",
     time: "4:00 PM",
-    outfit: "Orange and Hot Pink",
+    ladiesAttire: "Orange and Hot Pink",
     outfitColors: [
       { name: "Orange", hex: "#f97316" },
       { name: "Hot Pink", hex: "#ec4899" },
     ],
+    gentsAttire: "White Kurta with Shawl",
     hairstyle: "Paranda (Not compulsory)",
     description: "Bathed in auspicious turmeric, vibrant marigolds, and exuberant joy as colors of celebration fill the air.",
     bgImage: "/wedding-schedule/bg-3.jpg",
@@ -92,7 +95,7 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     venueAddress: "Kranti Chowk, beside DFC Gym, Chhatrapati Sambhajinagar",
     mapsUrl: "https://maps.app.goo.gl/KMU3rtJpqoASuoa38",
     time: "5:00 PM",
-    outfit: "Any shade of Green",
+    ladiesAttire: "Any shade of Green",
     outfitColors: [
       { name: "Emerald Green", hex: "#047857" },
       { name: "Olive Green", hex: "#65a30d" },
@@ -110,11 +113,11 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     dayOfWeek: "Thursday",
     title: "Nikkah Ceremony",
     urduTitle: "عقدِ نکاح",
-    subtitle: "The Sacred Covenant & Qubool",
+    subtitle: "Two Souls United in Love & Faith",
     venue: "Ellora Lawns",
     venueAddress: "Chhatrapati Sambhajinagar",
     mapsUrl: "https://maps.app.goo.gl/7kvLoxuC5CGF1Hpr5",
-    outfit: "White dress for the hijab-qubool moment",
+    ladiesAttire: "White dress for the hijab-qubool moment",
     dinnerNote: "For the evening dinner, you can wear any outfit of your choice.",
     description: "Two souls united in a divine bond of love and faith. May Allah bless this sacred union with lifelong peace and bliss.",
     bgImage: "/wedding-schedule/bg-1.jpg",
@@ -161,8 +164,8 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     venueAddress: "Chhatrapati Sambhajinagar",
     mapsUrl: "https://maps.app.goo.gl/SFFiNM251KumjkUEA",
     time: "Reaching Time: 8:00 PM",
-    outfit: "Pastel-coloured saree with a dupatta.",
-    highlightNote: "✨ Everyone has to drape dupatta ✨",
+    ladiesAttire: "Pastel-coloured saree with a dupatta.",
+    highlightNote: "✨ Ladies: Everyone has to drape dupatta ✨",
     description: "The magnificent grand finale celebrating our new beginning with elegance, joy, and unforgettable memories.",
     bgImage: "/wedding-schedule/bg-4.jpg",
     nextDayTitle: "Ending Note ✦",
@@ -816,9 +819,9 @@ export function WeddingSchedule() {
                   )}
 
                   {/* Outfit / Dress Code Box */}
-                  {event.outfit && (
-                    <div className="p-2 rounded-xl bg-[#f6eee2]/90 border border-[#dfca9f]/70">
-                      <div className="flex items-center gap-1.5 mb-0.5">
+                  {(event.ladiesAttire || event.gentsAttire || event.outfit) && (
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-[#f6eee2]/90 border border-[#dfca9f]/75 space-y-1.5">
+                      <div className="flex items-center gap-1.5">
                         <span className="text-[#84571c]">
                           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -828,27 +831,50 @@ export function WeddingSchedule() {
                           Dress Code
                         </span>
                       </div>
-                      <p className="font-cormorant font-bold text-xs sm:text-sm text-[#341d0c]">
-                        {event.outfit}
-                      </p>
 
-                      {/* Color Palette Swatches */}
-                      {event.outfitColors && (
-                        <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
-                          {event.outfitColors.map((color, cIdx) => (
-                            <div
-                              key={cIdx}
-                              className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/80 border border-stone-300 shadow-xs"
-                            >
-                              <span
-                                className="w-2.5 h-2.5 rounded-full border border-black/10 shrink-0"
-                                style={{ backgroundColor: color.hex }}
-                              />
-                              <span className="font-cinzel text-[9px] font-semibold text-[#523820]">
-                                {color.name}
-                              </span>
+                      {/* Ladies Attire */}
+                      {(event.ladiesAttire || event.outfit) && (
+                        <div>
+                          <div className="flex items-center gap-1">
+                            <span className="font-cinzel text-[8.5px] uppercase tracking-wider text-[#916229] font-bold">
+                              Ladies Attire:
+                            </span>
+                            <span className="font-cormorant font-bold text-xs sm:text-sm text-[#341d0c]">
+                              {event.ladiesAttire || event.outfit}
+                            </span>
+                          </div>
+
+                          {/* Color Palette Swatches */}
+                          {event.outfitColors && (
+                            <div className="flex items-center gap-1.5 mt-1 flex-wrap">
+                              {event.outfitColors.map((color, cIdx) => (
+                                <div
+                                  key={cIdx}
+                                  className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/80 border border-stone-300 shadow-xs"
+                                >
+                                  <span
+                                    className="w-2.5 h-2.5 rounded-full border border-black/10 shrink-0"
+                                    style={{ backgroundColor: color.hex }}
+                                  />
+                                  <span className="font-cinzel text-[9px] font-semibold text-[#523820]">
+                                    {color.name}
+                                  </span>
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                          )}
+                        </div>
+                      )}
+
+                      {/* Gents Attire */}
+                      {event.gentsAttire && (
+                        <div className="pt-1.5 border-t border-[#dfca9f]/40 flex items-center gap-1">
+                          <span className="font-cinzel text-[8.5px] uppercase tracking-wider text-[#916229] font-bold">
+                            Gents Attire:
+                          </span>
+                          <span className="font-cormorant font-bold text-xs sm:text-sm text-[#341d0c]">
+                            {event.gentsAttire}
+                          </span>
                         </div>
                       )}
                     </div>
