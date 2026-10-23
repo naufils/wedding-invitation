@@ -39,7 +39,7 @@ const SCHEDULE_DAYS: WeddingDay[] = [
     subtitle: "A Night of Awakening & Blessings",
     venue: "At Home",
     venueAddress: "Tahera Manzil, Silk Mill Colony, Aurangabad",
-    mapsUrl: "https://maps.app.goo.gl/GTMnCMLdUj4nBsxB7?g_st=aw",
+    mapsUrl: "https://goo.gl/maps/BXPYEf6Kq2m2VnJE7?g_st=aw",
     description: "Inaugurating the wedding festivities with an intimate family night of traditional wedding songs, prayers, and celebratory laughter.",
     bgImage: "/wedding-schedule/bg-1.jpg",
     nextDayTitle: "Day 2: Sufi Night",
@@ -612,19 +612,25 @@ export function WeddingSchedule() {
               THE WEDDING CELEBRATION OF
             </p>
 
-            {/* Couple Names (Haseeb and Adeeba) */}
-            <div className="my-2 sm:my-3.5 flex flex-col items-center">
-              <h1 className="font-script text-5xl sm:text-7xl lg:text-8xl text-[#fdfbf7] drop-shadow-[0_4px_22px_rgba(212,175,55,0.45)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] tracking-wide leading-[1.05]">
-                Haseeb
+            {/* Couple Names (Shaikh Haseeb and Adeeba Afreen) */}
+            <div className="my-2 sm:my-3 flex flex-col items-center">
+              <h1 className="font-script text-[44px] sm:text-6xl lg:text-7xl text-[#fdfbf7] drop-shadow-[0_4px_22px_rgba(212,175,55,0.45)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] tracking-wide leading-[1.08]">
+                Shaikh Haseeb
               </h1>
-              <div className="flex items-center justify-center gap-3 my-1 opacity-90">
+              <p className="font-cormorant text-[13px] sm:text-base tracking-[0.06em] text-[#eddcb2] mt-0.5 sm:mt-1 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                S/o. Shaikh Habib S/o. Shaikh Pasha (Late)
+              </p>
+              <div className="flex items-center justify-center gap-3 my-1.5 sm:my-2 opacity-90">
                 <div className="w-10 h-[1px] bg-gradient-to-r from-transparent to-[#d4af37]" />
-                <span className="font-cormorant italic text-base sm:text-xl text-[#eddcb2]">and</span>
+                <span className="font-cormorant italic text-base sm:text-xl text-[#eddcb2]">With</span>
                 <div className="w-10 h-[1px] bg-gradient-to-l from-transparent to-[#d4af37]" />
               </div>
-              <h1 className="font-script text-5xl sm:text-7xl lg:text-8xl text-[#fdfbf7] drop-shadow-[0_4px_22px_rgba(212,175,55,0.45)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] tracking-wide leading-[1.05]">
-                Adeeba
+              <h1 className="font-script text-[44px] sm:text-6xl lg:text-7xl text-[#fdfbf7] drop-shadow-[0_4px_22px_rgba(212,175,55,0.45)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] tracking-wide leading-[1.08]">
+                Adeeba Afreen
               </h1>
+              <p className="font-cormorant text-[13px] sm:text-base tracking-[0.06em] text-[#eddcb2] mt-0.5 sm:mt-1 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                D/o. Mohammad Meraj Salik S/o. Mohammad Hamed (Late)
+              </p>
             </div>
 
             {/* Gold Ornamental Divider */}
@@ -708,7 +714,7 @@ export function WeddingSchedule() {
                 {/* Top Badge: Day Number */}
                 <div className="inline-flex items-center gap-2 px-3.5 py-0.5 rounded-full bg-[#f1e5cd] border border-[#cba657] mb-1 shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#c08e28]" />
-                  <span className="font-cinzel text-[10px] sm:text-[11px] font-bold tracking-[0.2em] text-[#63431d] uppercase">
+                  <span className="font-cinzel text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#63431d] uppercase">
                     DAY {event.dayNumber} OF 8
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#c08e28]" />
@@ -716,29 +722,29 @@ export function WeddingSchedule() {
 
                 {/* Date Display */}
                 <div className="mb-0.5">
-                  <h3 className="font-cinzel text-xs sm:text-sm font-semibold tracking-[0.14em] text-[#4b2f15]">
+                  <h3 className="font-cinzel text-[14px] sm:text-[16px] font-semibold tracking-[0.14em] text-[#4b2f15]">
                     {event.date}
                   </h3>
-                  <p className="font-cormorant italic text-[11px] sm:text-xs text-[#8c672e] tracking-wider font-semibold">
+                  <p className="font-cormorant italic text-[13px] sm:text-[14px] text-[#8c672e] tracking-wider font-semibold">
                     {event.dayOfWeek}
                   </p>
                 </div>
 
                 {/* Urdu Script Accent */}
                 {event.urduTitle && (
-                  <div className="font-arabic text-base sm:text-lg text-[#946922] leading-tight">
+                  <div className="font-arabic text-[18px] sm:text-[20px] text-[#946922] leading-tight">
                     {event.urduTitle}
                   </div>
                 )}
 
                 {/* Event Main Title */}
-                <h2 className="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.12em] text-[#2c170a] uppercase my-0.5">
+                <h2 className="font-cinzel text-[22px] sm:text-[26px] font-bold tracking-[0.12em] text-[#2c170a] uppercase my-0.5">
                   {event.title}
                 </h2>
 
                 {/* Script Subtitle */}
                 {event.subtitle && (
-                  <div className="font-script text-2xl sm:text-3xl text-[#9c6f21] mb-1 leading-tight">
+                  <div className="font-script text-[26px] sm:text-[32px] text-[#9c6f21] mb-1 leading-tight">
                     {event.subtitle}
                   </div>
                 )}
@@ -746,7 +752,7 @@ export function WeddingSchedule() {
                 {/* Royal Divider Line */}
                 <div className="flex items-center gap-2 my-1 w-3/4">
                   <span className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#bfa15f] to-[#bfa15f]" />
-                  <span className="text-[#a67c29] text-[9px]">✤ ⚜ ✤</span>
+                  <span className="text-[#a67c29] text-[11px]">✤ ⚜ ✤</span>
                   <span className="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#bfa15f] to-[#bfa15f]" />
                 </div>
 
@@ -764,14 +770,14 @@ export function WeddingSchedule() {
                           </svg>
                         </div>
                         <div className="flex-1">
-                          <span className="font-cinzel text-[9px] tracking-widest text-[#825b29] uppercase font-bold block">
+                          <span className="font-cinzel text-[11px] tracking-widest text-[#825b29] uppercase font-bold block">
                             Venue
                           </span>
-                          <p className="font-cormorant font-semibold text-xs sm:text-sm text-[#341d0c] leading-tight">
+                          <p className="font-cormorant font-semibold text-[14px] sm:text-[16px] text-[#341d0c] leading-tight">
                             {event.venue}
                           </p>
                           {event.venueAddress && (
-                            <p className="font-cormorant text-[11px] text-[#6e5033] leading-tight mt-0.5">
+                            <p className="font-cormorant text-[13px] sm:text-[14px] text-[#6e5033] leading-tight mt-0.5">
                               {event.venueAddress}
                             </p>
                           )}
@@ -784,13 +790,13 @@ export function WeddingSchedule() {
                             href={event.mapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-1.5 w-full py-1.5 px-3 rounded-lg bg-gradient-to-r from-[#e8d5ad] via-[#f1dfb8] to-[#e8d5ad] hover:from-[#dfc896] hover:to-[#e3cc9d] border border-[#c99f4e] text-[#4f2f0f] font-cinzel text-[10px] sm:text-[11px] font-bold tracking-wider shadow-xs transition-all active:scale-[0.98] cursor-pointer"
+                            className="inline-flex items-center justify-center gap-1.5 w-full py-1.5 px-3 rounded-lg bg-gradient-to-r from-[#e8d5ad] via-[#f1dfb8] to-[#e8d5ad] hover:from-[#dfc896] hover:to-[#e3cc9d] border border-[#c99f4e] text-[#4f2f0f] font-cinzel text-[12px] sm:text-[13px] font-bold tracking-wider shadow-xs transition-all active:scale-[0.98] cursor-pointer"
                           >
                             <svg className="w-3.5 h-3.5 text-[#8a5b1c]" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                             </svg>
                             <span>VIEW ON GOOGLE MAPS</span>
-                            <svg className="w-2.5 h-2.5 text-[#8a5b1c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3 h-3 text-[#8a5b1c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                           </a>
@@ -808,10 +814,10 @@ export function WeddingSchedule() {
                         </svg>
                       </div>
                       <div className="flex-1">
-                        <span className="font-cinzel text-[9px] tracking-widest text-[#825b29] uppercase font-bold block">
+                        <span className="font-cinzel text-[11px] tracking-widest text-[#825b29] uppercase font-bold block">
                           Timing
                         </span>
-                        <p className="font-cormorant font-bold text-xs sm:text-sm text-[#341d0c]">
+                        <p className="font-cormorant font-bold text-[14px] sm:text-[16px] text-[#341d0c]">
                           {event.time}
                         </p>
                       </div>
@@ -827,7 +833,7 @@ export function WeddingSchedule() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                           </svg>
                         </span>
-                        <span className="font-cinzel text-[9px] tracking-widest text-[#825b29] uppercase font-bold">
+                        <span className="font-cinzel text-[11px] tracking-widest text-[#825b29] uppercase font-bold">
                           Dress Code
                         </span>
                       </div>
@@ -835,11 +841,11 @@ export function WeddingSchedule() {
                       {/* Ladies Attire */}
                       {(event.ladiesAttire || event.outfit) && (
                         <div>
-                          <div className="flex items-center gap-1">
-                            <span className="font-cinzel text-[8.5px] uppercase tracking-wider text-[#916229] font-bold">
+                          <div className="flex items-center gap-1 flex-wrap">
+                            <span className="font-cinzel text-[10.5px] sm:text-[11px] uppercase tracking-wider text-[#916229] font-bold">
                               Ladies Attire:
                             </span>
-                            <span className="font-cormorant font-bold text-xs sm:text-sm text-[#341d0c]">
+                            <span className="font-cormorant font-bold text-[14px] sm:text-[16px] text-[#341d0c]">
                               {event.ladiesAttire || event.outfit}
                             </span>
                           </div>
@@ -856,7 +862,7 @@ export function WeddingSchedule() {
                                     className="w-2.5 h-2.5 rounded-full border border-black/10 shrink-0"
                                     style={{ backgroundColor: color.hex }}
                                   />
-                                  <span className="font-cinzel text-[9px] font-semibold text-[#523820]">
+                                  <span className="font-cinzel text-[11px] font-semibold text-[#523820]">
                                     {color.name}
                                   </span>
                                 </div>
@@ -868,11 +874,11 @@ export function WeddingSchedule() {
 
                       {/* Gents Attire */}
                       {event.gentsAttire && (
-                        <div className="pt-1.5 border-t border-[#dfca9f]/40 flex items-center gap-1">
-                          <span className="font-cinzel text-[8.5px] uppercase tracking-wider text-[#916229] font-bold">
+                        <div className="pt-1.5 border-t border-[#dfca9f]/40 flex items-center gap-1 flex-wrap">
+                          <span className="font-cinzel text-[10.5px] sm:text-[11px] uppercase tracking-wider text-[#916229] font-bold">
                             Gents Attire:
                           </span>
-                          <span className="font-cormorant font-bold text-xs sm:text-sm text-[#341d0c]">
+                          <span className="font-cormorant font-bold text-[14px] sm:text-[16px] text-[#341d0c]">
                             {event.gentsAttire}
                           </span>
                         </div>
@@ -882,23 +888,23 @@ export function WeddingSchedule() {
 
                   {/* Hairstyle / Jewellery Notes */}
                   {(event.hairstyle || event.jewellery) && (
-                    <div className="flex gap-2 text-xs">
+                    <div className="flex gap-2 text-[14px]">
                       {event.hairstyle && (
                         <div className="flex-1 p-1.5 rounded-lg bg-[#ede3cf]/70 border border-[#d3be94]">
-                          <span className="font-cinzel text-[8px] uppercase tracking-wider text-[#7e5621] font-bold block">
+                          <span className="font-cinzel text-[10px] uppercase tracking-wider text-[#7e5621] font-bold block">
                             Hairstyle
                           </span>
-                          <span className="font-cormorant font-semibold text-[11px] sm:text-xs text-[#3a2311]">
+                          <span className="font-cormorant font-semibold text-[13px] sm:text-[14px] text-[#3a2311]">
                             {event.hairstyle}
                           </span>
                         </div>
                       )}
                       {event.jewellery && (
                         <div className="flex-1 p-1.5 rounded-lg bg-[#ede3cf]/70 border border-[#d3be94]">
-                          <span className="font-cinzel text-[8px] uppercase tracking-wider text-[#7e5621] font-bold block">
+                          <span className="font-cinzel text-[10px] uppercase tracking-wider text-[#7e5621] font-bold block">
                             Jewellery
                           </span>
-                          <span className="font-cormorant font-semibold text-[11px] sm:text-xs text-[#3a2311]">
+                          <span className="font-cormorant font-semibold text-[13px] sm:text-[14px] text-[#3a2311]">
                             {event.jewellery}
                           </span>
                         </div>
@@ -908,11 +914,11 @@ export function WeddingSchedule() {
 
                   {/* Dinner Note (e.g. Nikkah evening dinner) */}
                   {event.dinnerNote && (
-                    <div className="p-2 rounded-xl bg-[#f2e7d3]/90 border border-[#d5bb82] text-xs">
-                      <span className="font-cinzel text-[9px] text-[#784e1b] font-bold tracking-wider uppercase block mb-0.5">
+                    <div className="p-2 rounded-xl bg-[#f2e7d3]/90 border border-[#d5bb82] text-[14px]">
+                      <span className="font-cinzel text-[11px] text-[#784e1b] font-bold tracking-wider uppercase block mb-0.5">
                         🔹 Evening Dinner
                       </span>
-                      <p className="font-cormorant italic font-semibold text-[11px] sm:text-xs text-[#392211]">
+                      <p className="font-cormorant italic font-semibold text-[13px] sm:text-[14px] text-[#392211]">
                         {event.dinnerNote}
                       </p>
                     </div>
@@ -921,7 +927,7 @@ export function WeddingSchedule() {
                   {/* Highlight Callout */}
                   {event.highlightNote && (
                     <div className="p-2 rounded-xl bg-gradient-to-r from-[#edd9b1] via-[#f7ebcf] to-[#edd9b1] border border-[#b98e3b] shadow-xs text-center">
-                      <p className="font-cinzel font-bold text-[11px] sm:text-xs text-[#523311] tracking-wider uppercase">
+                      <p className="font-cinzel font-bold text-[13px] sm:text-[14px] text-[#523311] tracking-wider uppercase">
                         {event.highlightNote}
                       </p>
                     </div>
@@ -934,7 +940,7 @@ export function WeddingSchedule() {
                     onClick={() => scrollToPage(pageIndex < 8 ? pageIndex + 1 : totalPages - 1)}
                     className="group inline-flex items-center gap-1 px-3.5 py-1 rounded-full bg-[#f0e4cc] hover:bg-[#e6d6b6] border border-[#caa455] text-[#6d4617] transition-all cursor-pointer"
                   >
-                    <span className="font-cinzel text-[9px] font-semibold tracking-widest uppercase">
+                    <span className="font-cinzel text-[11px] sm:text-[12px] font-semibold tracking-widest uppercase">
                       {event.nextDayTitle || (pageIndex === 8 ? "Ending & Dua ✦" : "Next Day")}
                     </span>
                     <svg className="w-3 h-3 text-[#885c21] group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -981,7 +987,7 @@ export function WeddingSchedule() {
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-0.5 rounded-full bg-[#f1e5cd] border border-[#cba657] mb-2 shadow-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-[#c08e28]" />
-              <span className="font-cinzel text-[10px] sm:text-[11px] font-bold tracking-[0.2em] text-[#63431d] uppercase">
+              <span className="font-cinzel text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#63431d] uppercase">
                 WITH LOVE &amp; GRATITUDE
               </span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#c08e28]" />
@@ -990,45 +996,45 @@ export function WeddingSchedule() {
             {/* Arabic Dua */}
             <div 
               dir="rtl"
-              className="font-arabic text-xl sm:text-2xl text-[#946922] leading-relaxed my-1 drop-shadow-xs"
+              className="font-arabic text-[22px] sm:text-[26px] text-[#946922] leading-relaxed my-1 drop-shadow-xs"
             >
               بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
             </div>
 
             {/* Translation */}
-            <p className="font-cormorant italic text-[11px] sm:text-xs text-[#8c672e] tracking-wider font-semibold max-w-xs mb-1">
+            <p className="font-cormorant italic text-[13px] sm:text-[14px] text-[#8c672e] tracking-wider font-semibold max-w-xs mb-1">
               “May Allah bless you, shower His blessings upon you, and unite you both in goodness.”
             </p>
 
             {/* Royal Divider Line */}
             <div className="flex items-center gap-2 my-1.5 w-3/4">
               <span className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#bfa15f] to-[#bfa15f]" />
-              <span className="text-[#a67c29] text-[9px]">✤ ⚜ ✤</span>
+              <span className="text-[#a67c29] text-[11px]">✤ ⚜ ✤</span>
               <span className="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#bfa15f] to-[#bfa15f]" />
             </div>
 
             {/* Main Title */}
-            <h2 className="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.14em] text-[#2c170a] uppercase my-0.5">
+            <h2 className="font-cinzel text-[22px] sm:text-[26px] font-bold tracking-[0.14em] text-[#2c170a] uppercase my-0.5">
               THANK YOU
             </h2>
 
             {/* Script Subtitle */}
-            <div className="font-script text-2xl sm:text-3xl text-[#9c6f21] mb-1 leading-tight">
+            <div className="font-script text-[26px] sm:text-[32px] text-[#9c6f21] mb-1 leading-tight">
               We Eagerly Look Forward To Celebrating With You
             </div>
 
             {/* Couple Names */}
             <div className="my-2 p-2.5 rounded-2xl bg-[#f4ebda]/85 border border-[#dfca9f]/60 w-full">
-              <p className="font-cinzel text-base sm:text-lg font-bold tracking-[0.18em] text-[#3d230f]">
+              <p className="font-cinzel text-[18px] sm:text-[20px] font-bold tracking-[0.18em] text-[#3d230f]">
                 HASEEB &amp; ADEEBA
               </p>
-              <p className="font-cormorant italic text-xs sm:text-sm text-[#775225] font-semibold mt-0.5">
+              <p className="font-cormorant italic text-[14px] sm:text-[16px] text-[#775225] font-semibold mt-0.5">
                 Along with the entire family
               </p>
             </div>
 
             {/* Warm closing note */}
-            <p className="font-cormorant text-xs sm:text-sm text-[#614529] max-w-xs leading-relaxed my-1 italic font-medium">
+            <p className="font-cormorant text-[14px] sm:text-[16px] text-[#614529] max-w-xs leading-relaxed my-1 italic font-medium">
               Your prayers, presence, and blessings mean the world to us as we begin this sacred chapter together.
             </p>
 
@@ -1036,7 +1042,7 @@ export function WeddingSchedule() {
             <div className="mt-2.5">
               <button
                 onClick={() => scrollToPage(0)}
-                className="group inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#f0e4cc] hover:bg-[#e6d6b6] border border-[#caa455] text-[#6d4617] font-cinzel text-[10px] font-semibold tracking-wider transition-all cursor-pointer shadow-xs active:scale-95"
+                className="group inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#f0e4cc] hover:bg-[#e6d6b6] border border-[#caa455] text-[#6d4617] font-cinzel text-[12px] font-semibold tracking-wider transition-all cursor-pointer shadow-xs active:scale-95"
               >
                 <span>❖ BACK TO BEGINNING</span>
                 <svg className="w-3 h-3 text-[#885c21] group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1054,7 +1060,7 @@ export function WeddingSchedule() {
         {activePageIndex > 0 ? (
           <button
             onClick={handlePrev}
-            className="pointer-events-auto flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#241911]/85 border border-[#d4af37]/50 text-[#f5ecd8] text-[10px] sm:text-[11px] font-cinzel font-medium backdrop-blur-md shadow-lg active:scale-95 transition-all"
+            className="pointer-events-auto flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#241911]/85 border border-[#d4af37]/50 text-[#f5ecd8] text-[12px] sm:text-[13px] font-cinzel font-medium backdrop-blur-md shadow-lg active:scale-95 transition-all"
           >
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -1066,7 +1072,7 @@ export function WeddingSchedule() {
         {activePageIndex < totalPages - 1 && (
           <button
             onClick={handleNext}
-            className="pointer-events-auto flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#241911]/85 border border-[#d4af37]/50 text-[#f5ecd8] text-[10px] sm:text-[11px] font-cinzel font-medium backdrop-blur-md shadow-lg active:scale-95 transition-all"
+            className="pointer-events-auto flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#241911]/85 border border-[#d4af37]/50 text-[#f5ecd8] text-[12px] sm:text-[13px] font-cinzel font-medium backdrop-blur-md shadow-lg active:scale-95 transition-all"
           >
             <span>NEXT</span>
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
