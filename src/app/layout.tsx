@@ -72,6 +72,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Wedding of Haseeb & Adeeba",
     description: "You are invited to the wedding of Haseeb and Adeeba. View our 8-day celebration itinerary, ceremonies & venue details.",
+    url: siteUrl,
     siteName: "Wedding of Haseeb & Adeeba",
     locale: "en_US",
     type: "website",
@@ -126,6 +127,7 @@ export default function RootLayout({
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="You are invited to the wedding of Haseeb and Adeeba" />
+        <meta property="og:url" content={siteUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Wedding of Haseeb & Adeeba" />
         <meta name="twitter:card" content="summary_large_image" />

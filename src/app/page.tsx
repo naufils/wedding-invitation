@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Wedding of Haseeb & Adeeba",
     description: "You are invited to the wedding of Haseeb and Adeeba. Join us in celebrating our 8-day wedding festivities from 25th October to 1st November 2026.",
+    url: "/",
     siteName: "Wedding of Haseeb & Adeeba",
     images: [
       {
