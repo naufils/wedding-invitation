@@ -186,6 +186,13 @@ export function WeddingSchedule() {
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const totalPages = SCHEDULE_DAYS.length + 2; // Card 0 (First Card) + 8 Schedule Days (1 to 8) + Ending Card
 
+  // Reflect the dedicated invitation slug in the URL bar when visiting root
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      window.history.replaceState(null, "", "/haseeb&adeeba_events");
+    }
+  }, []);
+
   // Handle opening the envelope
   const handleOpenEnvelope = () => {
     if (stage === "opening") return;
