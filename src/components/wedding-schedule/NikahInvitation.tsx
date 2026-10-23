@@ -474,51 +474,18 @@ export function NikahInvitation() {
                 </div>
               </div>
 
-              {/* Two-Column / Stacked Attire & Evening Dinner Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5">
-                {/* Dress Code Box */}
-                <div className="p-3 sm:p-4 rounded-2xl bg-[#f6eee2]/95 border border-[#dfca9f] flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <span className="text-[#84571c]">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                        </svg>
-                      </span>
-                      <span className="font-cinzel text-[11px] sm:text-[12px] tracking-[0.16em] text-[#825b29] uppercase font-bold">
-                        Dress Code
-                      </span>
-                    </div>
-                    <p className="font-cinzel text-[10.5px] sm:text-[11px] uppercase tracking-wider text-[#916229] font-bold mt-1.5">
-                      Ladies Attire:
-                    </p>
-                    <div className="flex items-center gap-2 mt-1.5">
-                      <span className="w-3.5 h-3.5 rounded-full bg-[#fdfbf7] border border-[#b89d68] shadow-2xs shrink-0" />
-                      <span className="font-cormorant italic font-bold text-[16px] sm:text-[18px] text-[#341d0c] leading-snug">
-                        Ivory &amp; Pearl White Elegance
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Evening Dinner Box */}
-                <div className="p-3 sm:p-4 rounded-2xl bg-[#f2e7d3]/95 border border-[#d5bb82] flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <span className="text-[#84571c] text-xs">✦</span>
-                      <span className="font-cinzel text-[11px] sm:text-[12px] text-[#784e1b] font-bold tracking-[0.16em] uppercase">
-                        Evening Dinner
-                      </span>
-                    </div>
-                    <p className="font-cormorant italic font-semibold text-[15px] sm:text-[17px] text-[#392211] leading-snug mt-1">
-                      For the evening dinner, you can wear any outfit of your choice.
-                    </p>
-                  </div>
-                  <div className="mt-2 pt-1.5 border-t border-[#d5bb82]/50">
-                    <span className="font-cormorant text-[13px] sm:text-[14px] text-[#6e5033] font-medium">
-                      Followed by Royal Feast &amp; Celebrations
+              {/* Evening Dinner Box */}
+              <div className="p-3 sm:p-4 rounded-2xl bg-[#f2e7d3]/95 border border-[#d5bb82] flex items-center justify-between gap-3">
+                <div>
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="text-[#84571c] text-xs">✦</span>
+                    <span className="font-cinzel text-[11px] sm:text-[12px] text-[#784e1b] font-bold tracking-[0.16em] uppercase">
+                      Evening Dinner
                     </span>
                   </div>
+                  <p className="font-cormorant italic font-semibold text-[16px] sm:text-[18px] text-[#392211] leading-snug">
+                    Followed by Royal Feast &amp; Celebrations
+                  </p>
                 </div>
               </div>
             </div>
