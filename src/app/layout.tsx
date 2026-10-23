@@ -118,22 +118,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Pinyon+Script&display=swap"
           rel="stylesheet"
         />
-        {/* WhatsApp & Social OpenGraph fallbacks */}
-        <meta property="og:title" content="Wedding of Haseeb & Adeeba" />
-        <meta property="og:description" content="You are invited to the wedding of Haseeb and Adeeba. Join us in celebrating our 8-day wedding festivities from 25th October to 1st November 2026." />
-        <meta property="og:image" content={`${siteUrl}/og-wedding-banner.jpg`} />
-        <meta property="og:image:secure_url" content={`${siteUrl}/og-wedding-banner.jpg`} />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="You are invited to the wedding of Haseeb and Adeeba" />
-        <meta property="og:url" content={siteUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Wedding of Haseeb & Adeeba" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Wedding of Haseeb & Adeeba" />
-        <meta name="twitter:description" content="You are invited to the wedding of Haseeb and Adeeba. Join us in celebrating our 8-day wedding festivities." />
-        <meta name="twitter:image" content={`${siteUrl}/og-wedding-banner.jpg`} />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

@@ -2,14 +2,18 @@ import type { Metadata } from "next";
 import { NikahInvitation } from "@/components/wedding-schedule/NikahInvitation";
 
 export const metadata: Metadata = {
-  title: "Haseeb & Adeeba — Nikkah Ceremony Invitation | 29 Oct 2026",
+  title: {
+    absolute: "Nikkah Ceremony of Haseeb & Adeeba",
+  },
   description:
-    "Join us in celebrating the sacred union and Nikkah Ceremony of Shaikh Haseeb & Adeeba Afreen on 29th October 2026 at Ellora Lawns, Aurangabad.",
+    "You are cordially invited to witness and bless the sacred Nikkah union of Shaikh Haseeb and Adeeba Afreen on Thursday, 29th October 2026 at Ellora Lawns, Aurangabad.",
   openGraph: {
-    title: "Haseeb & Adeeba — Nikkah Ceremony Invitation",
+    title: "Nikkah Ceremony of Haseeb & Adeeba",
     description:
-      "Join us in celebrating the Nikkah Ceremony of Shaikh Haseeb & Adeeba Afreen on Thursday, 29th October 2026.",
+      "You are cordially invited to witness and bless the sacred Nikkah union of Shaikh Haseeb and Adeeba Afreen on Thursday, 29th October 2026 at Ellora Lawns, Aurangabad.",
     url: "https://evermint.vercel.app/haseeb&adeeba_nikah_invitation",
+    siteName: "Nikkah Ceremony of Haseeb & Adeeba",
+    locale: "en_US",
     type: "website",
     images: [
       {
@@ -18,15 +22,15 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "Haseeb & Adeeba Nikkah Invitation",
+        alt: "Nikkah Ceremony of Haseeb & Adeeba",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Haseeb & Adeeba — Nikkah Ceremony Invitation",
+    title: "Nikkah Ceremony of Haseeb & Adeeba",
     description:
-      "Join us in celebrating the Nikkah Ceremony of Shaikh Haseeb & Adeeba Afreen on Thursday, 29th October 2026.",
+      "You are cordially invited to witness and bless the sacred Nikkah union of Shaikh Haseeb and Adeeba Afreen on Thursday, 29th October 2026 at Ellora Lawns, Aurangabad.",
     images: ["https://evermint.vercel.app/og-wedding-banner.jpg"],
   },
 };
