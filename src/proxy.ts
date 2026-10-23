@@ -30,6 +30,20 @@ function extractSubdomain(host: string): string | null {
 export function proxy(req: NextRequest) {
   const pathname = req.nextUrl.pathname.toLowerCase();
   if (
+    pathname === "/haseeb%26adeeba_nikah_invitation" ||
+    pathname === "/haseeb_adeeba_nikah_invitation" ||
+    pathname === "/haseeb-adeeba-nikah-invitation" ||
+    pathname === "/haseeb&adeeba_nikah_invitation" ||
+    pathname === "/haseeb%26adeeba_nikkah_invitation" ||
+    pathname === "/haseeb_adeeba_nikkah_invitation" ||
+    pathname === "/haseeb&adeeba_nikkah_invitation"
+  ) {
+    const url = req.nextUrl.clone();
+    url.pathname = "/haseeb&adeeba_nikah_invitation";
+    return NextResponse.rewrite(url);
+  }
+
+  if (
     pathname === "/haseeb%26adeeba_wedding_events" ||
     pathname === "/haseeb_adeeba_wedding_events" ||
     pathname === "/haseeb-adeeba-wedding-events" ||
