@@ -198,9 +198,16 @@ export function WeddingSchedule() {
     }
   }, []);
 
+  // Preload intro video immediately on mount for instant single-tap mobile playback
+  useEffect(() => {
+    if (introVideoRef.current) {
+      introVideoRef.current.load();
+    }
+  }, []);
+
   // Handle opening the envelope
   const handleOpenEnvelope = () => {
-    if (stage === "opening") return;
+    if (stage !== "envelope") return;
     setStage("opening");
 
     if (audioRef.current) {
@@ -211,7 +218,6 @@ export function WeddingSchedule() {
     const intro = introVideoRef.current;
     if (intro) {
       intro.muted = true;
-      intro.currentTime = 0;
       intro.play().catch(() => {
         // Fallback if video play was blocked
         setStage("opened");
@@ -332,13 +338,14 @@ export function WeddingSchedule() {
       {/* ======================================================== */}
       {stage !== "opened" && (
         <div 
+          onPointerUp={handleOpenEnvelope}
           onClick={handleOpenEnvelope}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black cursor-pointer overflow-hidden transition-opacity duration-700"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black cursor-pointer overflow-hidden transition-opacity duration-700 touch-manipulation"
         >
           {/* Intro Video (Pink envelope opening) */}
           <video
             ref={introVideoRef}
-            src="/envelope/intro.mp4"
+            src="/envelope/intro-fast.mp4"
             poster="/envelope/intro-poster.jpg"
             playsInline
             preload="auto"
@@ -348,7 +355,11 @@ export function WeddingSchedule() {
           />
 
           {/* Top audio button during envelope screen */}
-          <div className="absolute top-4 right-4 z-20 pointer-events-auto">
+          <div
+            onPointerUp={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
+            className="absolute top-4 right-4 z-20 pointer-events-auto"
+          >
             <button
               type="button"
               onClick={toggleMute}
