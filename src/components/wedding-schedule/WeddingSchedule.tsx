@@ -186,10 +186,15 @@ export function WeddingSchedule() {
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const totalPages = SCHEDULE_DAYS.length + 2; // Card 0 (First Card) + 8 Schedule Days (1 to 8) + Ending Card
 
-  // Reflect the dedicated invitation slug in the URL bar when visiting root
+  // Reflect the dedicated invitation slug in the URL bar when visiting root or old slug
   useEffect(() => {
-    if (typeof window !== "undefined" && window.location.pathname === "/") {
-      window.history.replaceState(null, "", "/haseeb&adeeba_events");
+    if (
+      typeof window !== "undefined" &&
+      (window.location.pathname === "/" ||
+        window.location.pathname === "/haseeb&adeeba_events" ||
+        window.location.pathname === "/haseeb%26adeeba_events")
+    ) {
+      window.history.replaceState(null, "", "/haseeb&adeeba_wedding_events");
     }
   }, []);
 
