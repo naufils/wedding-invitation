@@ -426,7 +426,7 @@ export function NikahInvitation() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="font-cinzel text-[13px] sm:text-[15px] font-bold tracking-[0.14em] text-[#5e3d16] uppercase">
-                    7:00 PM Onwards
+                    8:00 PM Onwards
                   </span>
                 </div>
               </div>
