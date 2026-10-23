@@ -179,6 +179,7 @@ export function WeddingSchedule() {
   const introVideoRef = useRef<HTMLVideoElement>(null);
   const revealVideoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const isOpeningRef = useRef<boolean>(false);
 
   const [stage, setStage] = useState<EnvelopeStage>("envelope");
   const [activePageIndex, setActivePageIndex] = useState<number>(0);
@@ -205,9 +206,10 @@ export function WeddingSchedule() {
     }
   }, []);
 
-  // Handle opening the envelope
+  // Handle opening the envelope instantly on single tap/touch
   const handleOpenEnvelope = () => {
-    if (stage !== "envelope") return;
+    if (isOpeningRef.current || stage !== "envelope") return;
+    isOpeningRef.current = true;
     setStage("opening");
 
     if (audioRef.current) {
@@ -225,6 +227,11 @@ export function WeddingSchedule() {
     } else {
       setStage("opened");
     }
+
+    // Start preloading reveal video now that intro has started
+    if (revealVideoRef.current) {
+      revealVideoRef.current.load();
+    }
   };
 
   const handleIntroEnded = () => {
@@ -237,8 +244,12 @@ export function WeddingSchedule() {
 
   // Replay envelope animation
   const handleReplayEnvelope = () => {
+    isOpeningRef.current = false;
     setStage("envelope");
     setMenuOpen(false);
+    if (introVideoRef.current) {
+      introVideoRef.current.currentTime = 0;
+    }
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
       if (!isMuted) {
@@ -329,7 +340,7 @@ export function WeddingSchedule() {
       <audio
         ref={audioRef}
         src="/bg-music.mp3"
-        preload="auto"
+        preload="metadata"
         loop
       />
       
@@ -338,7 +349,8 @@ export function WeddingSchedule() {
       {/* ======================================================== */}
       {stage !== "opened" && (
         <div 
-          onPointerUp={handleOpenEnvelope}
+          onTouchStart={handleOpenEnvelope}
+          onPointerDown={handleOpenEnvelope}
           onClick={handleOpenEnvelope}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black cursor-pointer overflow-hidden transition-opacity duration-700 touch-manipulation"
         >
@@ -356,6 +368,8 @@ export function WeddingSchedule() {
 
           {/* Top audio button during envelope screen */}
           <div
+            onTouchStart={(e) => e.stopPropagation()}
+            onPointerDown={(e) => e.stopPropagation()}
             onPointerUp={(e) => e.stopPropagation()}
             onClick={(e) => e.stopPropagation()}
             className="absolute top-4 right-4 z-20 pointer-events-auto"
@@ -572,7 +586,7 @@ export function WeddingSchedule() {
             ref={revealVideoRef}
             src="/envelope/reveal.mp4"
             poster="/envelope/reveal-poster.jpg"
-            autoPlay
+            preload="none"
             loop
             muted
             playsInline
